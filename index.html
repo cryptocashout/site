@@ -4,6 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style type="text/css">
+<!--
+/* @group Blink */
+.blink {
+	-webkit-animation: blink 1.4s linear infinite;
+	-moz-animation: blink 1.4s linear infinite;
+	-ms-animation: blink 1.4s linear infinite;
+	-o-animation: blink 1.4s linear infinite;
+	 animation: blink 1.4s linear infinite;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/* @end */
+-->
+</style>
 <body class="w3-content" style="max-width:1300px">
 
 <!-- First Grid: Logo & About -->
@@ -12,12 +55,13 @@
     <div class="w3-padding-64">
       <h1>My Logo</h1>
     </div>
+    <p style="display: inline-block;">Cashier status: </p><div style="display: inline-block;" class="blink" id="display"></div>
+    
     <div class="w3-padding-32">
-   
       <a href="#one" class="w3-button w3-black w3-block w3-hover-blue-grey w3-padding-16">1. Start your cash out with a Cashier</a>
       <a href="#two" class="w3-button w3-black w3-block w3-hover-teal w3-padding-16">2. Choose a withdrawal method</a>
            <a href="#three" class="w3-button w3-black w3-block w3-hover-dark-grey w3-padding-16">3. Receive your cash payout</a>
-      <a href="#contact" class="w3-blue w3-button w3-block w3-hover-light-grey w3-padding-16">Telegram link</a>
+      <a href="https://t.me/btc2gbp" class="w3-blue w3-button w3-block w3-hover-light-grey w3-padding-16">Telegram link</a>
     </div>
   </div>
   <div class="w3-half w3-blue-grey w3-container" style="height:700px" id="one">
@@ -25,8 +69,10 @@
       <h1>Cashier</h1>
       <img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:50%">
       <div class="w3-left-align w3-padding-large">
-        <p>Trades are conducted through Telegram. When you start a trade, the cashier will ask you the following:</p> <ul><li>Which cryptocurrency you want to cashout</li><li>How much you want to cash out</li><li>Your chosen withdrawal method.</li></ul>
+        <p>Trades are conducted through Telegram. When you start a trade, the cashier will ask you the following:</p> <ul><li>Which cryptocurrency you want to cashout
+        </li><li>How much you want to cash out</li><li>Your chosen withdrawal method.</li></ul>
         <p>Trades are conducted at the best current market rate available with a flat fee of 3.99% per cash out.</p>
+        <p>We support all cryptocurrencies.</p>
       </div>
     </div>
   </div>
@@ -65,8 +111,23 @@
 
 <!-- Footer -->
 <footer class="w3-container w3-black w3-padding-16">
-  <p>© CryptoCashout 2020</p>
+  <p>© CryptoCashout 2020 <a href="https://t.me/btc2gbp" class="blink"> Chat now</a></p>
 </footer>
+<script>
+window.onload = ( function() {        
+    getDateTime();
+     })(); 
 
+function getDateTime() {
+    var now     = new Date(); 
+    var hour    = now.getHours(); 
+   if(hour >= 9 && hour <= 17){  
+      document.getElementById('display').innerHTML = '<p style="color: #66ff66;"> Available.</p>';
+   }
+   else {
+         document.getElementById('display').innerHTML = '<p style="color: #ff0000;"> Available between 9AM and 5PM GMT.';
+    }
+}
+</script>
 </body>
 </html>
